@@ -17,7 +17,7 @@ function updateList(str) {
   ptsMatch && ptsMaxMatch && lines.push(`${ptsMatch[1]}/${ptsMaxMatch[1]} pts`)
   ptsMatch && !ptsMaxMatch && lines.push(`${ptsMatch[1]}`)
 
-  officialApp && lines.push(`Created with the official app, cleaned up at michaelblatherwick.co.uk/list-cleaner`)
+  officialApp && lines.push(`Created with the official app`, `Cleaned up at michaelblatherwick.co.uk/list-cleaner`)
 
   var output = lines.join('\n')
   outputElement.innerText = output
