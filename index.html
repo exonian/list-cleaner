@@ -21,14 +21,14 @@
     <h1>40K App List Cleaner</h1>
     <p>Because life's too short for wildly verbose list output.<p>
     <div class="row">
-      <div class="col">
+      <div class="col-12 col-md-6">
         <textarea class="form-control" id="input-list" onInput="updateList();"></textarea>
         <input class="form-check-input" type="checkbox" value="" id="wargear" onInput="updateList();">
         <label class="form-check-label" for="wargear">
           Include unit wargear
         </label>
       </div>
-      <div class="col">
+      <div class="col-12 col-md-6">
         <button class="btn btn-primary" type="button" data-clipboard-target="#output-list">Copy</button>
         <pre class="form-control" id="output-list"></pre>
       </div>
