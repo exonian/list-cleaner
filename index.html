@@ -22,7 +22,11 @@
     <p>Because life's too short for wildly verbose list output.<p>
     <div class="row">
       <div class="col">
-        <textarea class="form-control" name="input-list" onInput="updateList(this.value);"></textarea>
+        <textarea class="form-control" id="input-list" onInput="updateList();"></textarea>
+        <input class="form-check-input" type="checkbox" value="" id="wargear" onInput="updateList();">
+        <label class="form-check-label" for="wargear">
+          Include unit wargear
+        </label>
       </div>
       <div class="col">
         <button class="btn btn-primary" type="button" data-clipboard-target="#output-list">Copy</button>

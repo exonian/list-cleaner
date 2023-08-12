@@ -2,18 +2,25 @@ var outputElement = document.getElementById('output-list')
 
 const splitLines = str => str.split(/\r?\n/)
 
-function updateList(str, mode) {
+function updateList() {
+  var str = document.getElementById('input-list').value
+  var includeWargear = document.getElementById('wargear').checked
 
   var lines = splitLines(str).reduce((accum, line) => {
     var optionsMatch = line.match(/^ {4}(?<cleaned>[^• ].*$)/)
-    if (optionsMatch) accum[accum.length - 1].push(optionsMatch.groups.cleaned)
-    
-    else {
-      var nestedOptionsMatch = line.match(/^( {4}• | {6})(?<cleaned>.*$)/)
-      if (nestedOptionsMatch) accum[accum.length - 1].push(nestedOptionsMatch.groups.cleaned)
-
-      else accum.push([line])
+    if (optionsMatch) {
+      accum[accum.length - 1].push(optionsMatch.groups.cleaned)
+      return accum
     }
+    
+    var nestedOptionsMatch = line.match(/^( {4}• | {6})(?<cleaned>.*$)/)
+    if (nestedOptionsMatch) {
+      if (includeWargear) accum[accum.length - 1].push(nestedOptionsMatch.groups.cleaned)
+      return accum
+    }
+
+    accum.push([line])
+
     return accum
   }, [])
 
